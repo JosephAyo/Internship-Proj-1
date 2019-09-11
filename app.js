@@ -4,8 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/api');
+	var indexRouter = require('./routes/index');
+	var usersRouter = require('./routes/api');
 
 var url = 'mongodb://localhost/proj-1';
 
@@ -28,17 +28,22 @@ app.use(express.urlencoded({
 	extended: false
 })); 
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static('public'));
+app.get('*',(req,res)=>{
+	res.sendFile(path.resolve(__dirname,'public','index.html'));
+});
 
 
 
 
 // import routes
-const index = require('./routes/index');
+// const index = require('./routes/index');
 const api = require('./routes/api');
 
 // set routes
-app.use('/', index);
+// app.use('/', index);
 app.use('/api', api); // sample API Routes
 
 
