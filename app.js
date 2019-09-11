@@ -7,8 +7,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/api');
 
-var MongoClient =require('mongodb').MongoClient;
 var url = 'mongodb://localhost/proj-1';
+
+var mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
+
+mongoose.connect(' mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority')
+
 
 MongoClient.connect(url,(err,db)=>{
 	console.log(`Database connected successfully`);
