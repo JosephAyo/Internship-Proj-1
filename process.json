@@ -1,0 +1,5 @@
+{
+    "name": "proj-1",
+    "script": "app.js",
+    "watch": true
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <body class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3" style="text-align:center;margin-bottom:48px">
+                <h1>Welcome to Turbo</h1>
+                <hr>
+                <div style="background:#f9f9f9;border:1px solid #ddd;border-radius:3px;padding:12px">
+                    <form action="/api/profile" method="POST">
+                        <input type="text" name="firstName" placeholder="First Name"/><br/>
+                        <input type="text" name="lastName" placeholder="Last Name"/><br/>
+                        <input type="number" name="age" placeholder="Age"/><br/>
+                        <input type="text" name="team" placeholder="Team"/><br/>
+                        <input type="text" name="postion" placeholder="Position"/><br/>
+                        <button type="submit">ADD PROFILE</button>
+                    </form><br/><br/><br/>
+                    <form action="/api/team" method="POST">
+                        <input type="text" name="teamName" placeholder="Team Name"/><br/>
+                        <input type="text" name="City" placeholder="City"/><br/>
+                        <input type="number" name="NBAtitles" placeholder="NBA Titles won"/><br/>
+                        <input type="text" name="Conference" placeholder="Conference"/><br/>
+                        <button type="submit">ADD TEAM</button>
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>

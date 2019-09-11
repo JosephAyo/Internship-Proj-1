@@ -1,0 +1,21 @@
+{
+    "firstName": "LeBron",
+    "lastName": "James",
+    "age": 34,
+    "team": "Lakers",
+    "position": "SF"
+}
+{
+    "firstName": "Steph",
+    "lastName": "Curry",
+    "age": 31,
+    "team": "GSW",
+    "position": "PG"
+}
+{
+    "firstName": "Giannis",
+    "lastName": "Antetokounmpo ",
+    "age": 24,
+    "team": "Bucks",
+    "position": "PF"
+}

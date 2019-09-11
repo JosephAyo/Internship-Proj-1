@@ -1,0 +1,24 @@
+{
+    "teamName":"Lakers",
+    "City": "Los Angeles",
+    "Conference": "West",
+    "NBAtitles": 16
+}
+{
+    "teamName":"Celtics",
+    "City": "Boston",
+    "Conference": "East",
+    "NBAtitles": 17
+}
+{
+    "teamName":"Warriors",
+    "City": "San Francisco",
+    "Conference": "West",
+    "NBAtitles": 5
+}
+{
+    "teamName":"Rockets",
+    "City": "Houston",
+    "Conference": "West",
+    "NBAtitles": 2
+}
