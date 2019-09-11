@@ -15,10 +15,10 @@ const MongoClient = require('mongodb').MongoClient;
 mongoose.connect(' mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority')
 
 
-MongoClient.connect(url,(err,db)=>{
-	console.log(`Database connected successfully`);
-	db.close();
-});
+// MongoClient.connect(url,(err,db)=>{
+// 	console.log(`Database connected successfully`);
+// 	db.close();
+// });
 
 var app = express();
 
