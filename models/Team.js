@@ -22,6 +22,6 @@ const Team = new mongoose.Schema({
         default: '',
         trim: true
     },
-});
+},{collection:'teams'});
 
 module.exports = mongoose.model('Team',Team);
