@@ -7,15 +7,19 @@ var logger = require('morgan');
 	var indexRouter = require('./routes/index');
 	var usersRouter = require('./routes/api');
 
-var url = 'mongodb://localhost/proj-1';
+// var url = 'mongodb://localhost/proj-1';
 
 var mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+	const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+	client.close();
+});
 
-mongoose.connect(' mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority')
-
-
-MongoClient.connect(url,(err,db)=>{
+MongoClient.connect(uri,(err,db)=>{
 	console.log('Database connected successfully');
 	db.close();
 });
@@ -30,23 +34,18 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static('public'));
-app.get('*',(req,res)=>{
-	res.sendFile(path.resolve(__dirname,'public','index.html'));
-});
-
-
-
-
 // import routes
 // const index = require('./routes/index');
 const api = require('./routes/api');
 
 // set routes
 // app.use('/', index);
-app.use('/api', api); // sample API Routes
+app.use('/api',api); // sample API Routes
 
-
+app.use(express.static('public'));
+app.get('/',(req,res)=>{
+	res.sendFile(path.resolve(__dirname,'public','index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -70,7 +69,7 @@ const port = process.env.PORT || 3000;
 // });
 
 app.listen(port,()=>{
-	console.log(`app is listenig on port 3000`);
+	console.log(`app is listening on port ${port}`);
 });
 
 
