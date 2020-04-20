@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 const Profile =require('../models/Profile');
 const Team = require('../models/Team');
 
+<<<<<<< HEAD
 
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://josephayo:ND5xr-wGptQARHw@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
@@ -19,6 +20,19 @@ client.connect(err => {
   client.close();
 });
 
+=======
+var mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority');
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+>>>>>>> 7b8a53407987e23ca77e17202a7c86153672ac26
 var url = 'mongodb://localhost/proj-1';
 
 /*
@@ -29,7 +43,7 @@ PROFILES ENDPOINTS
 */
 router.get('/profile',(req,res)=>{
 
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     //Find all documents in the customers collection:
     const query = req.query;
     var filters= req.query;
@@ -70,7 +84,7 @@ router.get('/profile',(req,res)=>{
 
 
 router.get('/profile/update',(req,res)=>{
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     const query = req.query;
     const profileId = query.id;
     delete query.id;
@@ -92,7 +106,7 @@ router.get('/profile/update',(req,res)=>{
 });
 
 router.get('/profile/delete',(req,res)=>{
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     const query = req.query;
     const profileId = query.id;
     delete query.id;
@@ -114,7 +128,7 @@ router.get('/profile/delete',(req,res)=>{
 });
 
 router.get('/profile/:id',(req,res)=>{
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     if(err) throw err;
     const id = req.params.id;
     Profile.findById(id)
@@ -137,7 +151,7 @@ router.get('/profile/:id',(req,res)=>{
 //create a new profile and post to database
 router.post('/profile',(req,res)=>{
   
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     //Find all documents in the customers collection:
     var myobj = req.body;
     Profile.create(myobj)
@@ -165,7 +179,7 @@ TEAMS ENDPOINTS
 */
 router.get('/team',(req,res)=>{
 
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     const query2 = req.query;
     var filters2= req.query;
     if(req.query.NBAtitles !=null){
@@ -204,7 +218,7 @@ router.get('/team',(req,res)=>{
 
 
 router.get('/team/update',(req,res)=>{
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     const query = req.query;
     const teamId = query.id;
     delete query.id;
@@ -226,7 +240,7 @@ router.get('/team/update',(req,res)=>{
 });
 
 router.get('/team/delete',(req,res)=>{
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     const query = req.query;
     const teamId = query.id;
     delete query.id;
@@ -248,7 +262,7 @@ router.get('/team/delete',(req,res)=>{
 });
 
 router.get('/team/:id',(req,res)=>{
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     if(err) throw err;
     const id = req.params.id;
     Team.findById(id)
@@ -271,7 +285,7 @@ router.get('/team/:id',(req,res)=>{
 //create a new team and post to database
 router.post('/team',(req,res)=>{
   
-  MongoClient.connect(url,(err,db)=>{
+  MongoClient.connect(uri,(err,db)=>{
     //Find all documents in the customers collection:
     var myobj = req.body;
     Team.create(myobj)
