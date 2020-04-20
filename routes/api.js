@@ -9,7 +9,16 @@ router.get('/', function(req, res, next) {
 const Profile =require('../models/Profile');
 const Team = require('../models/Team');
 
-var MongoClient =require('mongodb').MongoClient;
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://josephayo:ND5xr-wGptQARHw@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 var url = 'mongodb://localhost/proj-1';
 
 /*

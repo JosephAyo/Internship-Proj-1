@@ -7,13 +7,22 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/api');
 
-var MongoClient =require('mongodb').MongoClient;
 var url = 'mongodb://localhost/proj-1';
 
-MongoClient.connect(url,(err,db)=>{
-	console.log(`Database connected successfully`);
-	db.close();
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://josephayo:ND5xr-wGptQARHw@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+	client.connect(err => {
+	const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+	client.close();
 });
+
+
+// MongoClient.connect(url,(err,db)=>{
+// 	console.log(`Database connected successfully`);
+// 	db.close();
+// });
 
 var app = express();
 
