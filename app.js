@@ -10,6 +10,7 @@ var logger = require('morgan');
 var url = 'mongodb://localhost/proj-1';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://josephayo:ND5xr-wGptQARHw@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
@@ -31,6 +32,24 @@ const uri = "mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/t
 
 MongoClient.connect(uri,(err,db)=>{
 	console.log('Database connected successfully');
+||||||| merged common ancestors
+MongoClient.connect(url,(err,db)=>{
+	console.log(`Database connected successfully`);
+=======
+var mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority');
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+// 	const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+// 	client.close();
+// });
+
+MongoClient.connect(uri,(err,db)=>{
+	console.log('Database connected successfully');
+>>>>>>> 3e35cb2ab67d97c358fcf5b7e75c2392268cfe7a
 	db.close();
 >>>>>>> 7b8a53407987e23ca77e17202a7c86153672ac26
 });
