@@ -7,60 +7,16 @@ var logger = require('morgan');
 	var indexRouter = require('./routes/index');
 	var usersRouter = require('./routes/api');
 
-var url = 'mongodb://localhost/proj-1';
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://josephayo:ND5xr-wGptQARHw@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-	client.connect(err => {
-	const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-	client.close();
-=======
 var mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority');
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-// 	const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-// 	client.close();
-// });
+var uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/proj-1';
 
-MongoClient.connect(uri,(err,db)=>{
-	console.log('Database connected successfully');
-||||||| merged common ancestors
-MongoClient.connect(url,(err,db)=>{
-	console.log(`Database connected successfully`);
-=======
-var mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority');
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://josephayo:rKxnool2hnH4lr7f@proj-1-ys6nl.mongodb.net/test?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-// 	const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-// 	client.close();
-// });
-
-MongoClient.connect(uri,(err,db)=>{
-	console.log('Database connected successfully');
->>>>>>> 3e35cb2ab67d97c358fcf5b7e75c2392268cfe7a
-	db.close();
->>>>>>> 7b8a53407987e23ca77e17202a7c86153672ac26
+mongoose.connect(uri).catch(function (err) {
+  console.error('Database connection failed:', err.message);
 });
 
-
-// MongoClient.connect(url,(err,db)=>{
-// 	console.log(`Database connected successfully`);
-// 	db.close();
-// });
-
 var app = express();
+
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -109,5 +65,4 @@ app.listen(port,()=>{
 });
 
 
-module.exports = MongoClient;
 module.exports = app;
