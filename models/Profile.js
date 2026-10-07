@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/proj-1', {useNewUrlParser: true});
 //create new Schema named Profile
 const Profile = new mongoose.Schema({
     firstName: {
